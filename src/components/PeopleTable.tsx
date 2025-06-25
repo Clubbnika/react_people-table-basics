@@ -46,7 +46,7 @@ export const PeopleTable: React.FC<PeopleTableProps> = ({ people }) => {
                   <td>{person.born}</td>
                   <td>{person.died}</td>
                   <td>
-                    {people.some(p => p.name === person.motherName) ? (
+                    {person.motherName && people.some(p => p.name === person.motherName) ? (
                       <Link
                         to={`/people/${people.find(p => p.name === person.motherName)?.slug}`}
                         className={'has-text-danger'}
@@ -59,7 +59,7 @@ export const PeopleTable: React.FC<PeopleTableProps> = ({ people }) => {
                   </td>
 
                   <td>
-                    {people.some(p => p.name === person.fatherName) ? (
+                    {person.fatherName && people.some(p => p.name === person.fatherName) ? (
                       <Link
                         to={`/people/${people.find(p => p.name === person.fatherName)?.slug}`}
                       >
